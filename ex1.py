@@ -1,6 +1,9 @@
+import collections
+import subprocess
 import subprocess
 lista_de_produtos = []
 lista_de_precos = []
+muito_caros = 0
 
 while True:
 
@@ -21,6 +24,13 @@ caro = max(lista_de_precos)
 posicao_caro = lista_de_precos.index(caro)
 nome_caro = lista_de_produtos[posicao_caro]
 
+for preco in lista_de_precos:
+    if preco >= 100:
+        muito_caros += 1
+
+
+
+
 
 print(f'A média dos preços é: {media_dos_precos:.2f}')
 
@@ -30,3 +40,4 @@ for i in range(len(lista_de_produtos)):
 print(lista_de_produtos)
 print(lista_de_precos)
 print(f'O produto {nome_caro} custa R${caro:.2f}') 
+print(f'Foram encontrados {muito_caros} produtos muito caros')
